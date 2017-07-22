@@ -1,2 +1,2 @@
-# snakemake-tutorial
-Snakemake tutorial ready to be used
+# snakemake-tutorial-starter
+Starter for the Snakemake tutorial
