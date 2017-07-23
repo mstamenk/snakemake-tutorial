@@ -9,11 +9,11 @@
  * Output: file with the X and Y axis stored in columns saved in the specified path.
  *
  * Author: Marko Stamenkovic
- * Site: https:mstamenk.github.io
+ * Site: https://mstamenk.github.io
  * Mail: stamenkovim@gmail.com
  *
  * This file is part of the Snakemake Tutorial. 
- * Please visit : https://mstamenk.github.io/2017/07/snakemake-tutorial-for-pyroot(root)-users.html
+ * Please visit : https://mstamenk.github.io/2017/07/snakemake-tutorial-for-data-analysts.html 
  * for more informations.
 */
 
@@ -26,16 +26,21 @@
 
 using namespace std;
 
+// Enum type for storage purpose
 enum type {IN = 0, OUT=1 };
 
+// Parser to read arguments from the command line
 void parser(int argc,char *argv[],string& mode, int& begin, int& end, string& location, string& saveName);
 
+// Utilities
 int read_mode(const string& mode);
 void check_borders(int& begin, const int& end);
 string outfile(const string& location, const string& mode, const string& saveName);
 
+// Process the data and compute the outputs
 vector<vector<int>> process(const string& mode, const int& begin, const int& end);
 
+// Formatting for output and writing
 void print(ostream& out, const vector<vector<int>>& res);
 void write(const string& outfile, const vector<vector<int>>& res);
 
@@ -56,7 +61,7 @@ int main(int argc, char *argv[]){
     check_borders(begin,end);
 // Process the 
     result = process(mode,begin,end);
-    print(cout,result);
+//    print(cout,result);
     filename = outfile(location,mode,saveName);
     write(filename, result);
 

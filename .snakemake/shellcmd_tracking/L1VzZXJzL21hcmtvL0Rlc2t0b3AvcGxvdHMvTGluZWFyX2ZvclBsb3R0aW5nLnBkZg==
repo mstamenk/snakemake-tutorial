@@ -1,0 +1,1 @@
+source /Users/marko/snakemake-tutorial/scripts/setup_path.sh && $PY2 /Users/marko/snakemake-tutorial/python/plot.py --mode Linear
