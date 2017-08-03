@@ -14,12 +14,10 @@ def read_file(filename):
     for x in open(filename).readlines():
         xaxis.append(int(x.split(' ')[0]))
         yaxis.append(int(x.split(' ')[1]))
-    print xaxis
-    print yaxis
     return xaxis, yaxis
 
 name, color = parseDatafiles(args.mode)
-filename = loc.RESSOURCE + name
+filename = loc.RESOURCE + name
 x, y = read_file(filename)
 
 plt.plot(x,y, color)
@@ -29,6 +27,6 @@ if args.show : plt.show()
 
 save_path = loc.PLOTS + name.replace('.dat','.pdf')
 plt.savefig(save_path)
-print "Plot saved at %s"%save_path 
+print("Plot saved at %s"%save_path )
 
 

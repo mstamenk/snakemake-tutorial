@@ -1,1 +1,1 @@
-export PATH="/Users/marko/anaconda/bin:$TUTO:$PYTHON:$PATH"
+export PATH="/Users/marko/anaconda/bin:$PATH"

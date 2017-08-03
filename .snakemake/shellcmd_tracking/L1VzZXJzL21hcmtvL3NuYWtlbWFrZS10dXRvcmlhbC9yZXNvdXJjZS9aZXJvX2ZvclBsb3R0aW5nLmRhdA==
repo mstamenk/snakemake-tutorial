@@ -1,0 +1,1 @@
+python /Users/marko/snakemake-tutorial/python/process.py --mode Zero --start 20 --end 100

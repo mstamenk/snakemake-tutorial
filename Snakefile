@@ -22,7 +22,7 @@ rule compile:
         exe    = loc.CPP + 'produce.out'
     shell:
         "echo 'g++ -std=c++11 {input.script} -o {output.exe}' &&"
-        "source {setup_path} && g++ -std=c++11 {input.script} -o {output.exe}"
+        "g++ -std=c++11 {input.script} -o {output.exe}"
 
 
 filename, c = parseDatafiles(config["mode"])
@@ -33,22 +33,23 @@ rule process:
         exe = loc.CPP + 'produce.out',
         script = loc.PYTHON + 'process.py'
     output:
-        dat = loc.RESSOURCE + filename
+        dat = loc.RESOURCE + filename
     shell:
-        "source {setup_path} && $PY2 {input.script} --mode {config[mode]} --start {config[start]} --end {config[end]}"
+        "python {input.script} --mode {config[mode]} --start {config[start]} --end {config[end]}"
  
 rule plot:
     input:
         script = loc.PYTHON + 'plot.py',
-        dat = loc.RESSOURCE + filename
+        dat = loc.RESOURCE + filename
     output:
         plot = loc.PLOTS + plotname
     shell:  
-        "source {setup_path} && $PY2 {input.script} --mode {config[mode]}"
+        "python {input.script} --mode {config[mode]}"
 
 rule clean:
     params:
         cpp = loc.CPP,
-        ressource = loc.RESSOURCE
+        resource = loc.RESOURCE,
+        plots = loc.PLOTS
     shell:
-        "rm {params.cpp}/*.out && rm {params.ressource}/*.dat"
+        "rm {params.cpp}/*.out && rm {params.resource}/*.dat && rm {params.plots}/*"

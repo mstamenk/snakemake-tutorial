@@ -14,7 +14,7 @@ if [ "$1" = "snake" ]; then
     source activate snake  
 else 
     echo "Setup without snakemake using python2"
-    source scripts/setup_path.sh
+#    source scripts/setup_path.sh # Uncomment if you need other libraries or in order to set an environment with python2
 fi
 # Definition of various path in the architecture of the project
 export CPP=$PWD/cpp
@@ -25,7 +25,7 @@ export SCRIPTS=$PWD/scripts
 
 export PYTHON=$PWD/python
 
-export RESSOURCE=$PWD/ressource
+export RESOURCE=$PWD/resource
 export ROUTINES=$PWD/routines
 
 # User-sensitive way to define your project, define the folders that are not the same from one person to the other.
@@ -35,11 +35,13 @@ then
     export PLOTS=$HOME/Desktop/plots
 elif [ "$USER" = "COMPLETE HERE" ]
 then
-    export PLOTS=/PATH/TO/PLOTS
+    export PLOTS=$PWD/plots
 else
     echo "Don't forget to compelte the paths in the setup.sh in order to run the scripts!"
 fi
 
+# In order to import python modules
+export PYTHONPATH=$PYTHONPATH:$TUTO:$ROUTINES:$PYTHON
+
 # Snakemake environment requires python3. In order to overcome this issue, you can store the path to python2 and use it in the shell commands of the Snakefile
-export PY2='/Users/marko/anaconda/bin/python2'
-export PYTHONPATH=$PYTHONPATH:$TUTO:$ROUTINES:$PYTHON:$PY2
+#export PY2='/Users/marko/anaconda/bin/python2'
