@@ -26,7 +26,7 @@ rule compile:
 
 
 filename, c = parseDatafiles(config["mode"])
-plotname = filename.replace('.dat','.pdf') 
+plotname = filename.replace('.dat','.png') 
 
 rule process:
     input:

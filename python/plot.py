@@ -25,7 +25,7 @@ plt.title(args.mode + ' order plot')
 
 if args.show : plt.show()
 
-save_path = loc.PLOTS + name.replace('.dat','.pdf')
+save_path = loc.PLOTS + name.replace('.dat','.png')
 plt.savefig(save_path)
 print("Plot saved at %s"%save_path )
 
