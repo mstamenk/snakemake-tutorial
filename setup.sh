@@ -31,11 +31,14 @@ export PYTHON=$MYROOT/python
 export RESOURCE=$MYROOT/resource
 export ROUTINES=$MYROOT/routines
 
+export PLOTS=$MYROOT/plots
+
+
 # User-sensitive way to define your project, define the folders that are not the same from one person to the other.
 # Once the repertories updated with a git pull, every user should be able to run the full analysis
 if [ "$USER" = "marko" ]
 then
-    export PLOTS=$HOME/Desktop/plots
+    export PLOTS=$HOME/Desktop/plots #Override the locations in a user sensitive way
 elif [ "$USER" = "COMPLETE HERE" ]
 then
     export PLOTS=$MYROOT/plots
